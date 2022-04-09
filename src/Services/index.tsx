@@ -8,7 +8,7 @@ export const getCountryData = async (country: string) : Promise<any> => {
         const url = `${COUNTRYAPI}${country}`
         const resp = await axios.get(url)
         if(resp.status !== 200){
-            throw new Error("Something went wrong")
+            throw new Error("Something Wrong")
         }
         const data = await resp.data;
         return data;
@@ -24,7 +24,7 @@ export const getWetherData =  async (cityName:any) : Promise<any> => {
         const url = `${WEATHERAPI}${API_KEY}&query=${cityName}`
         const resp = await axios.get(url)
         if(resp.status !== 200){
-            throw new Error("Something went wrong")
+            throw new Error("Something wrong")
         }
         const data = await resp.data;
         return [data]

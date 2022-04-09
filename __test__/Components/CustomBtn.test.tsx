@@ -1,9 +1,9 @@
 import React from 'react';
-import CustomBtn from '../src/Components/CustomBtn';
 import { render, fireEvent, waitFor, cleanup } from '@testing-library/react-native';
 import axios from 'axios'
-import { btnTypes, inputTypes } from '../src/Components/types'
-import CustomInput from '../src/Components/CustomTxtInput';
+import { btnTypes } from '../../src/Components/types';
+import CustomBtn from '../../src/Components/CustomBtn';
+
 
 afterEach(cleanup);
 
@@ -25,26 +25,10 @@ describe('<Button /> - ', () => {
       expect(container.props.disabled).toEqual(true)
 
       // act2: fire callback
-      fireEvent(container, 'changeText')
+      // fireEvent(container, 'changeText')
+      
 
       // assert 2: "state" should remain as false.
       expect(state).toEqual(false)
     })
   })
-
-
-describe('<TextInput/> ', () => {
-    it('text input', async () => {
-        const mock = jest.fn()
-        const props: inputTypes = {
-            value: '',
-            onChangeText: mock,
-            label: 'Enter Country',
-            placeholder: 'Enter Country',
-            testID: "1"
-        }
-        const component = render(<CustomInput {...props} />)
-        fireEvent.changeText(await component.findByTestId('1'), 'india')
-        expect(mock).toHaveBeenCalledWith('india')
-    })
-})

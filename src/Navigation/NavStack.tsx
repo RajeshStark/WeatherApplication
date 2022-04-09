@@ -4,8 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '../Screens/Home/Home'
 import CountryDetails from '../Screens/CountryDetails/CountryDetails';
 import CapitalWeather from '../Screens/CapitalWeather/CapitalWeather';
+import { StackNavigationDetails } from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<StackNavigationDetails>();
 
 export default function NavStack() {
 

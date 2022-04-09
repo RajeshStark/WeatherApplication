@@ -7,8 +7,8 @@ import { homeProps } from '../../Navigation/types';
 import { getCountryData } from '../../Services';
 
 export default function Home({navigation} : homeProps) {
+	
 	const [value, setValue] = useState<string>('');
-
 	const getData = () => {
 		
 		getCountryData(value)
